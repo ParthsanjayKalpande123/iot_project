@@ -1,0 +1,40 @@
+source: video
+video_path: videos/demo.mp4
+output_dir: output
+model:
+  path: models/efficientdet_lite0.tflite
+  labels_path: models/labels.txt
+  output_order:
+  - boxes
+  - classes
+  - scores
+  - count
+  label_index_offset: 0
+  input_color_order: RGB
+  float_input_scale: 0.00392156862745098
+  integer_input_scale: 0.00392156862745098
+confidence_threshold: 0.5
+class_confidence_thresholds:
+  bottle: 0.3
+roi:
+- 0.0
+- 0.0
+- 1.0
+- 1.0
+max_objects: 1
+debounce_frames: 3
+empty_belt_is_warning: false
+video_sample_interval_s: 0.0
+camera:
+  backend: webcam
+  width: 1280
+  height: 720
+  index: 0
+  output_fps: 10.0
+calibration_safety_margin: 0.15
+size_calibration:
+  calibrated: false
+  min_area_ratio: 0.0
+  max_area_ratio: 1.0
+  min_height_ratio: 0.0
+  max_height_ratio: 1.0
